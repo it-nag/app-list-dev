@@ -1,0 +1,16 @@
+.credit {
+    margin-top: 60px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    padding: 10px 0;
+    background-color: #d40000;
+    color: #fbfbfb;
+    width: 100%;
+    overflow: hidden;
+}
+
+.credit>h5 {
+    margin: 0;
+    text-align: center;
+}

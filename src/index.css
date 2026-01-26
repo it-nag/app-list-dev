@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Rubik&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Rubik', sans-serif;
+}
+
+code {
+  font-family: monospace;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  margin: 0 100px;
+}
+
+.title {
+  font-size: 35px;
+  text-align: center;
+}
+
+.title-line {
+  border-top: 3px solid #d40000;
+  width: 10%;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    margin: 0 30px;
+  }
+}

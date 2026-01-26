@@ -1,0 +1,228 @@
+.app-list .logo {
+    height: 69px;
+    transform: translateX(-25px);
+}
+
+.app-list .title {
+    padding-top: 5px;
+    font-weight: 800;
+}
+
+.app-list .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-list .list {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    align-items: center;
+    column-gap: 50px;
+    row-gap: 75px;
+}
+
+.app-list .app {
+    background-color: #fff;
+    color: #3a3a3a;
+    width: auto;
+    height: 100%;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.app-list .app:hover {
+    opacity: 1;
+    scale: 1.05;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.app-list .app:hover .tooltip {
+    opacity: 0.9;
+}
+
+.app-list .app::before {
+    content: 'ON';
+    padding: 10px;
+    /* background-color: #757575; */
+    position: absolute;
+    top: 5px; 
+    right: 5px;
+    font-weight: bold;
+}
+
+.app-list .app.current::before {
+    /* background-color: #2c9735; */
+    color: #2c9735;
+    transform: rotate(360deg);
+    animation: normal 1s;
+}
+
+.app-list .img-language {
+    width: 50%;
+    height: auto;
+    margin-top: auto;
+}
+
+.app-list .app-sub {
+    margin-top: auto;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.app-list .app-sub li {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.app-list .app-sub li:not(:last-of-type) {
+    margin-bottom: 10px;
+}
+
+.app-list .app-sub li.current::after {
+    content: '';
+    padding: 3px;
+    /* background-color: #0b8000; */
+    color: #fbfbfb;
+}
+
+.app-list .img-framelib {
+    width: 30px;
+    height: 30px;
+}
+
+.app-list .sub-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.69);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.app-list .sub-list .list {
+    background-color: transparent;
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.app-list .sub-list .list .app {
+    background-color: #fff;
+    color: #3a3a3a;
+    width: 20%;
+    height: 300px;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.app-list .sub-list .list .app:hover {
+    scale: 1.05;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.app-list .sub-list .list .app.current::before {
+    /* background-color: #2c9735; */
+}
+
+.app-list .sub-list .close {
+    position: fixed;
+    top: 30px;
+    right: 50px;
+    cursor: pointer;
+    background-color: rgba(251, 251, 251, 0.9);
+    padding: 5px;
+    padding-bottom: 3px;
+}
+
+.app-list .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.69);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.app-list .modal .close {
+    position: fixed;
+    top: 30px;
+    right: 50px;
+    cursor: pointer;
+    background-color: rgba(251, 251, 251, 0.9);
+    padding: 5px;
+    padding-bottom: 3px;
+}
+
+.app-list .btn {
+    margin: 10px;
+    padding: 10px; 
+    font-size: 15px; 
+    font-weight: 800; 
+    color: #fff; 
+    border: 0px; 
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+/* .img-certificate-zoom {
+    width: 100%;
+} */
+
+@media only screen and (max-width: 900px) {
+    .certificate-zoom {
+        margin-top: 100px;
+    }
+
+    .certificates-zoom .close {
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .app-list .list {
+        grid-template-columns: 1fr;
+        row-gap: 50px;
+    }
+}

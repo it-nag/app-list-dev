@@ -1,0 +1,111 @@
+.certification {
+    padding: 50px 0;
+}
+
+.certificates {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(2, 30%);
+    grid-template-rows: auto;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 50px;
+}
+
+.certificate {
+    height: 200px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.img-certificate {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    max-height: 25%;
+    background-color: rgba(20, 20, 20, 0.9);
+    color: #fbfbfb;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.overlay>h3, .overlay>p {
+    text-align: center;
+    margin: 0;
+}
+
+.overlay>p {
+    display: none;
+    transition: 0.3s;
+}
+
+.certificate:hover .overlay {
+    max-height: 100%;
+    transition: 0.5s;
+}
+
+.certificate:hover .overlay>p {
+    display: block;
+    transition: 0.3s;
+}
+
+.certificates-zoom {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    z-index: 1;
+}
+
+.certificates-zoom .close {
+    position: fixed;
+    top: 30px;
+    right: 50px;
+    cursor: pointer;
+    background-color: rgba(251, 251, 251, 0.9);
+    padding: 5px;
+    padding-bottom: 3px;
+}
+
+.img-certificate-zoom {
+    width: 100%;
+}
+
+@media only screen and (max-width: 900px) {
+    .certificates {
+        grid-template-columns: repeat(2, 40%);
+    }
+
+    .certificate-zoom {
+        margin-top: 100px;
+    }
+
+    .certificates-zoom .close {
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .certificates {
+        grid-template-columns: 1fr;
+    }
+}
