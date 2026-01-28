@@ -18,6 +18,7 @@ import Factory from '../Assets/icons/factory.png'
 import Line from '../Assets/icons/line.png'
 import Doc from '../Assets/icons/document.png'
 import NAG from '../Assets/images/logo/nag-logo.png'
+import Secondary from '../Assets/images/logo/secondary.png'
 
 export {
     SignalBit,
@@ -40,4 +41,5 @@ export {
     Line,
     Doc,
     NAG,
+    Secondary
 }

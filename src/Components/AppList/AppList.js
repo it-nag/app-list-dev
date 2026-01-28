@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react'
 import Tooltip from '../../SubComponents/Tooltip/Tooltip'
 import './AppList.css'
-import { SignalBit, NDS, Process, ManageEmployee, EndLine, FinishLine, PackingLine, Regular, Qr, QrHardware, DefectInOut, RejectInOut, Report, Daily, Summary, Dashboard, Factory, Line, Doc, NAG } from '../imports'
+import { SignalBit, NDS, Process, ManageEmployee, EndLine, FinishLine, PackingLine, Regular, Qr, QrHardware, DefectInOut, RejectInOut, Report, Daily, Summary, Dashboard, Factory, Line, Doc, NAG, Secondary } from '../imports'
 import { GrClose } from 'react-icons/gr'
 
 function AppList() {
@@ -15,6 +15,7 @@ function AppList() {
   const sewingDashboardRef = useRef()
   const linkSelectionRef = useRef()
   const linkSelectionTitleRef = useRef()
+  const sewingSecondaryRef = useRef();
 
   const [open, setOpen] = useState(false)
 
@@ -42,6 +43,7 @@ function AppList() {
       sewingDashboardRef.current.style.display = 'none'
       defectInOutRef.current.style.display = 'none'
       rejectInOutRef.current.style.display = 'none'
+      sewingSecondaryRef.current.style.display = 'none'
       linkSelectionRef.current.style.display = 'none'
     } else if (selected === 'endline') {
       endLineRef.current.style.display = 'flex'
@@ -51,6 +53,7 @@ function AppList() {
       sewingDashboardRef.current.style.display = 'none'
       defectInOutRef.current.style.display = 'none'
       rejectInOutRef.current.style.display = 'none'
+      sewingSecondaryRef.current.style.display = 'none'
       ndsRef.current.style.display = 'none'
       linkSelectionRef.current.style.display = 'none'
     } else if (selected === 'finishline') {
@@ -61,6 +64,7 @@ function AppList() {
       sewingDashboardRef.current.style.display = 'none'
       defectInOutRef.current.style.display = 'none'
       rejectInOutRef.current.style.display = 'none'
+      sewingSecondaryRef.current.style.display = 'none'
       ndsRef.current.style.display = 'none'
       linkSelectionRef.current.style.display = 'none'
     } else if (selected === 'packingline') {
@@ -71,6 +75,7 @@ function AppList() {
       sewingDashboardRef.current.style.display = 'none'
       defectInOutRef.current.style.display = 'none'
       rejectInOutRef.current.style.display = 'none'
+      sewingSecondaryRef.current.style.display = 'none'
       ndsRef.current.style.display = 'none'
       linkSelectionRef.current.style.display = 'none'
     } else if (selected === 'sewingreport') {
@@ -81,6 +86,7 @@ function AppList() {
       sewingDashboardRef.current.style.display = 'none'
       defectInOutRef.current.style.display = 'none'
       rejectInOutRef.current.style.display = 'none'
+      sewingSecondaryRef.current.style.display = 'none'
       ndsRef.current.style.display = 'none'
       linkSelectionRef.current.style.display = 'none'
     } else if (selected === 'sewingdashboard') {
@@ -91,6 +97,7 @@ function AppList() {
       sewingDashboardRef.current.style.display = 'flex'
       defectInOutRef.current.style.display = 'none'
       rejectInOutRef.current.style.display = 'none'
+      sewingSecondaryRef.current.style.display = 'none'
       ndsRef.current.style.display = 'none'
       linkSelectionRef.current.style.display = 'none'
     } else if (selected === 'defectinout') {
@@ -101,6 +108,7 @@ function AppList() {
       sewingDashboardRef.current.style.display = 'none'
       defectInOutRef.current.style.display = 'flex'
       rejectInOutRef.current.style.display = 'none'
+      sewingSecondaryRef.current.style.display = 'none'
       ndsRef.current.style.display = 'none'
       linkSelectionRef.current.style.display = 'none'
     } else if (selected === 'rejectinout') {
@@ -113,6 +121,17 @@ function AppList() {
       rejectInOutRef.current.style.display = 'flex'
       ndsRef.current.style.display = 'none'
       linkSelectionRef.current.style.display = 'none'
+    } else if (selected === 'sewingsecondary') {
+      endLineRef.current.style.display = 'none'
+      finishLineRef.current.style.display = 'none'
+      packingLineRef.current.style.display = 'none'
+      sewingReportRef.current.style.display = 'none'
+      sewingDashboardRef.current.style.display = 'none'
+      defectInOutRef.current.style.display = 'none'
+      rejectInOutRef.current.style.display = 'none'
+      sewingSecondaryRef.current.style.display = 'flex'
+      ndsRef.current.style.display = 'none'
+      linkSelectionRef.current.style.display = 'none'
     } else {
       endLineRef.current.style.display = 'none'
       finishLineRef.current.style.display = 'none'
@@ -121,6 +140,7 @@ function AppList() {
       sewingDashboardRef.current.style.display = 'none'
       defectInOutRef.current.style.display = 'none'
       rejectInOutRef.current.style.display = 'none'
+      sewingSecondaryRef.current.style.display = 'none'
       ndsRef.current.style.display = 'none'
       linkSelectionRef.current.style.display = 'none'
     }
@@ -205,6 +225,14 @@ function AppList() {
             <li className='current'>Reject In Out</li>
           </ul>
           <Tooltip className='tooltip' message='Aplikasi untuk Input Reject Masuk/Reject Keluar di QC Reject' position='top'/>
+        </div>  
+
+        <div className='app current'  onClick={() => openPopUp('sewingsecondary')}>
+          <img src={Secondary} className='img-language' alt='html' />
+          <ul className='app-sub'>
+            <li className='current'>Sewing Secondary</li>
+          </ul>
+          <Tooltip className='tooltip' message='Aplikasi untuk Input Proses Secondary setelah proses Endline' position='top'/>
         </div>  
 
         <div className='app current' style={{display: 'none'}} onClick={() => openPopUp('sewingreport')}>
@@ -407,6 +435,32 @@ function AppList() {
               <li className='current'>Reject In Out QR Hardware</li>
             </ul>
             <Tooltip className='tooltip' message='Aplikasi untuk Input Reject Masuk/Reject Keluar di QC Reject menggunakan Alat Scan.' position='top'/>
+          </a>
+        </div>
+
+        {/* SewingSecondary */}
+        <div className='list' ref={sewingSecondaryRef}>
+          <h1 style={{width: '100%', textAlign: 'center', color: '#fbfbfb', textShadow: '-1px 1px 3px #000'}}>Sewing Secondary</h1>
+          <a href='http://10.10.5.12:8001/nds_secondary' target='_blank' rel='noreferrer' className='app current'>
+            <img src={Regular} className='img-language' alt='html' />
+            <ul className='app-sub'>
+              <li className='current'>Sewing Secondary Manual</li>
+            </ul>
+            <Tooltip className='tooltip' message='Aplikasi untuk Input Secondary Masuk/Secondary Keluar setelah proses Endline secara Manual.' position='top'/>
+          </a>
+          {/* <a href='https://10.10.5.62/sb_wip_defect_qr' target='_blank' rel='noreferrer' className='app current'>
+            <img src={Qr} className='img-language' alt='html' />
+            <ul className='app-sub'>
+              <li className='current'>Defect In Out QR Camera</li>
+            </ul>
+            <Tooltip className='tooltip' message='Aplikasi untuk Input Defect Masuk/Defect Keluar di Manding/Spotcleaning dengan cara Scan (Kamera).' position='top'/>
+          </a> */}
+          <a href='http://10.10.5.12:8001/nds_secondary_qr' target='_blank' rel='noreferrer' className='app current'>
+            <img src={QrHardware} className='img-language' alt='html' />
+            <ul className='app-sub'>
+              <li className='current'>Sewing Secondary QR Hardware</li>
+            </ul>
+            <Tooltip className='tooltip' message='Aplikasi untuk Input Secondary Masuk/Secondary Keluar setelah proses Endline, menggunakan Alat Scan.' position='top'/>
           </a>
         </div>
 
